@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export --path PATH:/root/\x2ecache/rebar3/bin\x1e/root/\x2ecargo/bin\x1e/root/\x2elocal/share/nvm/v18\x2e18\x2e2/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/sbin\x1e/usr/bin\x1e/sbin\x1e/bin\x1e/usr/games\x1e/usr/local/games\x1e/usr/lib/wsl/lib\x1e/mnt/c/Python310/Scripts/\x1e/mnt/c/Python310/\x1e/mnt/c/WINDOWS/system32\x1e/mnt/c/WINDOWS\x1e/mnt/c/WINDOWS/System32/Wbem\x1e/mnt/c/WINDOWS/System32/WindowsPowerShell/v1\x2e0/\x1e/mnt/c/Program\x20Files\x20\x28x86\x29/Webex/Plugins\x1e/mnt/c/ProgramData/chocolatey/bin\x1e/mnt/c/Program\x20Files/Git/cmd\x1e/mnt/c/Program\x20Files/Git/mingw64/bin\x1e/mnt/c/Program\x20Files/Git/usr/bin\x1e/mnt/c/Program\x20Files/dotnet/\x1e/Docker/host/bin\x1e/mnt/c/Users/lami/\x2ecargo/bin\x1e/mnt/c/Users/lami/AppData/Local/Programs/Python/Launcher/\x1e/mnt/c/Users/lami/AppData/Local/pnpm\x1e/mnt/c/Users/lami/AppData/Local/Microsoft/WindowsApps\x1e/mnt/c/Users/lami/AppData/Local/Programs/Microsoft\x20VS\x20Code/bin\x1e/snap/bin
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish
@@ -33,4 +33,5 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR nvm_default_version:v18\x2e18\x2e2
