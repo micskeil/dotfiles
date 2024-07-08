@@ -4,3 +4,5 @@ source ~/.local/share/omakub/defaults/bash/rc
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 . "$HOME/.cargo/env"
+
+eval "$(starship init bash)"
