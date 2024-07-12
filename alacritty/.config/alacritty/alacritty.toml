@@ -1,1 +1,21 @@
-import = [ "~/.config/alacritty/theme.toml", "~/.config/alacritty/font.toml", "~/.config/alacritty/font-size.toml", "~/.local/share/omakub/defaults/alacritty.toml" ]
+import = [
+  "~/.config/alacritty/theme.toml",
+  "~/.config/alacritty/font.toml",
+  "~/.config/alacritty/font-size.toml",
+]
+
+[env]
+TERM = "xterm-256color"
+
+[shell]
+program = "zellij"
+
+[window]
+padding = { x = 0, y = 0 }
+decorations = "None"
+opacity = 0.98
+dimensions.columns = 90
+dimensions.lines = 30
+
+[keyboard]
+bindings = [{ key = "F11", action = "ToggleFullscreen" }]
