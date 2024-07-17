@@ -1,5 +1,4 @@
 theme "catppuccin"
-default_layout "compact"
 on_force_close "quit"
 default_mode "locked"
 
