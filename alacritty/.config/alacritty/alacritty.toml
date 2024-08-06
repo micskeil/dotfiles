@@ -14,8 +14,8 @@ program = "zellij"
 padding = { x = 0, y = 0 }
 decorations = "None"
 opacity = 0.98
-dimensions.columns = 90
-dimensions.lines = 30
+dimensions.columns = 140
+dimensions.lines = 80
 
 [keyboard]
 bindings = [{ key = "F11", action = "ToggleFullscreen" }]
