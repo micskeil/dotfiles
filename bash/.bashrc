@@ -6,6 +6,8 @@ export SUDO_EDITOR="$EDITOR"
 #rebar3
 export PATH=/home/lami/.cache/rebar3/bin:$PATH
 
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+
 eval "$(starship init bash)"
 
 #aliases
