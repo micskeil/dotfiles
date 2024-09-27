@@ -1,4 +1,4 @@
 theme "catppuccin"
 on_force_close "quit"
-default_mode "locked"
+default_mode "tmux"
 

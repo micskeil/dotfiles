@@ -5,6 +5,7 @@ export SUDO_EDITOR="$EDITOR"
 
 #rebar3
 export PATH=/home/lami/.cache/rebar3/bin:$PATH
+export PATH=/usr/local/android-studio/bin:$PATH
 
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 
@@ -12,6 +13,7 @@ eval "$(starship init bash)"
 
 #aliases
 alias c='clear'
+alias code='code . -r'
 
 # File system
 alias ls='eza -lh --group-directories-first --icons'
