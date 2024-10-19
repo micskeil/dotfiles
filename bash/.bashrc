@@ -31,6 +31,7 @@ alias ....='cd ../../..'
 
 # Tools
 alias n='nvim'
+alias t='tmux attach-session'
 alias g='git'
 alias d='docker'
 alias r='rails'
