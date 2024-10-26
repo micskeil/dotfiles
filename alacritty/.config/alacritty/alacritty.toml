@@ -1,3 +1,9 @@
+[general]
+import = [
+  "~/.config/alacritty/theme.toml",
+  "~/.config/alacritty/font.toml",
+  "~/.config/alacritty/font-size.toml",
+]
 
 [env]
 TERM = "xterm-256color"
@@ -19,11 +25,5 @@ dimensions.lines = 60
 [keyboard]
 bindings = [{ key = "F11", action = "ToggleFullscreen" }]
 
-[general]
-import = [
-  "~/.config/alacritty/theme.toml",
-  "~/.config/alacritty/font.toml",
-  "~/.config/alacritty/font-size.toml",
-]
 
 [terminal]
