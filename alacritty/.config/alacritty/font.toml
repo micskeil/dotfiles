@@ -1,4 +1,4 @@
 [font]
-normal = { family = "0xProtoNerdFont", style = "Light" }
+normal = { family = "MesloLGS NF", style = "Light" }
 bold = { family = "0xProtoNerdFont", style = "Bold" }
 italic = { family = "0xProtoNerdFont", style = "Italic" }
