@@ -65,10 +65,10 @@ if command -v zoxide &>/dev/null; then
   eval "$(zoxide init --cmd cd bash)"
 fi
 
-if command -v fzf &>/dev/null; then
-  source /usr/share/bash-completion/completions/fzf
-  source /usr/share/doc/fzf/examples/key-bindings.bash
-fi
+# if command -v fzf &>/dev/null; then
+#   source /usr/share/bash-completion/completions/fzf
+#   source /usr/share/doc/fzf/examples/key-bindings.bash
+# fi
 
 # Technicolor dreams
 force_color_prompt=yes
@@ -91,3 +91,5 @@ source /usr/share/bash-completion/bash_completion
 export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/omakub/bin:$PATH"
 set +h
 export OMAKUB_PATH="/home/$USER/.local/share/omakub"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
