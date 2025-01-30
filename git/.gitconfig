@@ -6,6 +6,7 @@
 [pull]
 	rebase = true
 [credential]
+	helper = store
 
 [diff]
     tool = vimdiff
