@@ -9,7 +9,7 @@ return {
         jump_next = "]]",
         accept = "<CR>",
         refresh = "gr",
-        open = "<C-CR>",
+        open = "<C-M-CR>",
       },
       layout = {
         position = "bottom", -- | top | left | right | horizontal | vertical
@@ -17,15 +17,13 @@ return {
       },
     },
     suggestion = {
-      enabled = false,
-      auto_trigger = false,
+      enabled = true,
+      auto_trigger = true,
       hide_during_completion = true,
       debounce = 75,
       keymap = {
-        -- accept suggestion with C-a or Tab
         accept = "<C-a>",
         accept_word = false,
-        -- accept line with C-Tab
         accept_line = "<C-l>",
         next = "<M-]>",
         prev = "<M-[>",

@@ -9,8 +9,6 @@ export PATH=/usr/local/android-studio/bin:$PATH
 
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 
-eval "$(starship init bash)"
-
 #aliases
 alias c='clear'
 alias code='code . -r'
@@ -45,6 +43,10 @@ alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
 
+#Github Copilot CLI
+alias s='gh copilot suggest'
+alias e='gh copilot explain'
+
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 alias decompress="tar -xzf"
@@ -57,6 +59,9 @@ webm2mp4() {
 }
 
 # INIT
+
+eval "$(starship init bash)"
+
 if command -v mise &>/dev/null; then
   eval "$(mise activate bash)"
 fi
@@ -71,8 +76,8 @@ fi
 # fi
 
 # Technicolor dreams
-force_color_prompt=yes
-color_prompt=yes
+# force_color_prompt=yes
+# color_prompt=yes
 
 # Simple prompt with path in the window/pane title and carat for typing line
 PS1=$'\uf0a9 '
@@ -91,5 +96,8 @@ source /usr/share/bash-completion/bash_completion
 export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/omakub/bin:$PATH"
 set +h
 export OMAKUB_PATH="/home/$USER/.local/share/omakub"
+
+# Set XDG directories
+export XDG_CONFIG_HOME="$HOME/.config"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
