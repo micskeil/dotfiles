@@ -1,0 +1,20 @@
+return {
+  "olimorris/codecompanion.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
+  event = "VeryLazy", -- Load it lazily
+  opts = {
+    -- Add your configuration options here
+    chat = {
+      model = "gpt-4-turbo", -- Set the desired model
+    },
+    commands = {
+      enabled = true, -- Enable default commands
+    },
+    mappings = {
+      accept_suggestion = "<C-l>",
+    },
+  },
+}
