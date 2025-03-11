@@ -11,3 +11,7 @@ vim.api.nvim_create_autocmd("VimLeave", {
     os.execute('echo -ne "\\033]0;' .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. ' - bash\\007"')
   end,
 })
+
+-- set the timeout for keycodes also makes the escape key faster
+vim.o.timeoutlen = 300 -- Reduce key timeout (default is 1000)
+vim.o.ttimeoutlen = 10 -- Reduce terminal escape sequence timeout
