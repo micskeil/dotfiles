@@ -24,6 +24,7 @@ return {
       }
 
       -- Setup keybindings.
+      -- You can use <C-b> and <C-f> to scroll up and down in the documentation window.
       opts.mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -36,10 +37,17 @@ return {
         { name = "nvim_lsp" },
         { name = "snippets" }, -- For luasnip users.
       }, {
-        { name = "buffer" },
+        {
+          name = "buffer",
+        },
       }, {
         { name = "copilot", keyword_length = 0, max_item_count = 0 },
       })
+
+      -- Never show "ghost" text.
+      opts.experimental = {
+        ghost_text = false,
+      }
     end,
   },
 }
