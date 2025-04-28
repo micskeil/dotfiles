@@ -22,6 +22,8 @@ alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 alias fd='fdfind'
 alias cd='z'
 
+alias rm='trash-put'
+
 # Directories
 alias ..='cd ..'
 alias ...='cd ../..'
