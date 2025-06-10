@@ -1,7 +1,11 @@
 # Editor used by CLI
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
-. "$HOME/.cargo/env"
+
+"$HOME/.cargo/env"
+
+# Environment variables for various tools
+export PERPLEXITY_API_KEY=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
 
 #rebar3
 export PATH=/home/lami/.cache/rebar3/bin:$PATH

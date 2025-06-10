@@ -1,0 +1,22 @@
+-- plugins/formatters.lua
+return {
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        javascript = { "deno_fmt" },
+        javascriptreact = { "deno_fmt" },
+        typescript = { "deno_fmt" },
+        typescriptreact = { "deno_fmt" },
+        -- Add others if needed
+      },
+      formatters = {
+        deno_fmt = {
+          command = "deno",
+          args = { "fmt", "-" },
+          stdin = true,
+        },
+      },
+    },
+  },
+}
