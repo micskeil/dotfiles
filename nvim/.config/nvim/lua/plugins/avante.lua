@@ -2,49 +2,49 @@ return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   lazy = false,
-  debub = true,
+  debug = true,
   version = false, -- Never set this value to "*"! Never!
   opts = {
     provider = "copilot",
     providers = {
-      -- Sonar models (with web search capabilities)
       copilot = {
         __inherited_from = "copilot",
-        model = "claude-3.7-sonnet", -- claude-3.7-sonnet, gpt-4o-mini
       },
-      ["perplexity-sonar"] = {
-        __inherited_from = "openai",
-        api_key_name = "PERPLEXITY_API_KEY",
-        endpoint = "https://api.perplexity.ai",
-        model = "llama-3.1-sonar-large-128k-online", -- Online search enabled
+      ["copilot-sonnet"] = {
+        __inherited_from = "copilot",
+        model = "claude-sonnet-4", -- claude-3.7-sonnet, gpt-4o-mini
       },
-
-      -- Reasoning models
-      ["perplexity-reasoning"] = {
-        __inherited_from = "openai",
-        api_key_name = "PERPLEXITY_API_KEY",
-        endpoint = "https://api.perplexity.ai",
-        model = "r1-1776", -- Advanced reasoning model
-      },
-
-      -- Chat models (without web search)
-      ["perplexity-chat"] = {
-        __inherited_from = "openai",
-        api_key_name = "PERPLEXITY_API_KEY",
-        endpoint = "https://api.perplexity.ai",
-        model = "llama-3.1-sonar-large-128k-chat", -- Chat without search
-      },
-
-      -- Smaller/faster models
-      ["perplexity-small"] = {
-        __inherited_from = "openai",
-        api_key_name = "PERPLEXITY_API_KEY",
-        endpoint = "https://api.perplexity.ai",
-        model = "llama-3.1-sonar-small-128k-online",
-      },
+      -- ["perplexity-sonar"] = {
+      --   __inherited_from = "openai",
+      --   api_key_name = "PERPLEXITY_API_KEY",
+      --   endpoint = "https://api.perplexity.ai",
+      --   model = "llama-3.1-sonar-large-128k-online", -- Online search enabled
+      -- },
+      -- -- Reasoning models
+      -- ["perplexity-reasoning"] = {
+      --   __inherited_from = "openai",
+      --   api_key_name = "PERPLEXITY_API_KEY",
+      --   endpoint = "https://api.perplexity.ai",
+      --   model = "r1-1776", -- Advanced reasoning model
+      -- },
+      -- -- Chat models (without web search)
+      -- ["perplexity-chat"] = {
+      --   __inherited_from = "openai",
+      --   api_key_name = "PERPLEXITY_API_KEY",
+      --   endpoint = "https://api.perplexity.ai",
+      --   model = "llama-3.1-sonar-large-128k-chat", -- Chat without search
+      -- },
+      -- -- Smaller/faster models
+      -- ["perplexity-small"] = {
+      --   __inherited_from = "openai",
+      --   api_key_name = "PERPLEXITY_API_KEY",
+      --   endpoint = "https://api.perplexity.ai",
+      --   model = "llama-3.1-sonar-small-128k-online",
+      -- },
     },
+    -- @type AvanteConflictBehaviour
     behaviour = {
-      auto_suggestions = false, -- Experimental stage
+      auto_suggestions = true, -- Experimental stage
       auto_set_highlight_group = true,
       auto_set_keymaps = true,
       auto_apply_diff_after_generation = false,
@@ -146,7 +146,7 @@ return {
     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     "ibhagwan/fzf-lua", -- for file_selector provider fzf
-    -- "zbirenbaum/copilot.lua", -- for providers='copilot'
+    "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",

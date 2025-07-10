@@ -22,12 +22,12 @@ return {
       hide_during_completion = true,
       debounce = 75,
       keymap = {
-        accept = "<C-a>",
-        accept_word = false,
-        accept_line = "<C-l>",
-        next = "<M-]>",
-        prev = "<M-[>",
-        dismiss = "<C-d>",
+        accept = "<Tab>",
+        accept_word = "<C-w>",
+        accept_line = "<C-j>",
+        next = "<C-n>",
+        prev = "<C-p>",
+        dismiss = "<C-e>",
       },
     },
     filetypes = {
