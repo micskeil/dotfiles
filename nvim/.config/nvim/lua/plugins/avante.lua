@@ -14,6 +14,17 @@ return {
         __inherited_from = "copilot",
         model = "claude-sonnet-4", -- claude-3.7-sonnet, gpt-4o-mini
       },
+      {
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          model = "claude-sonnet-4-20250514",
+          timeout = 30000, -- Timeout in milliseconds
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 20480,
+          },
+        },
+      },
       -- ["perplexity-sonar"] = {
       --   __inherited_from = "openai",
       --   api_key_name = "PERPLEXITY_API_KEY",
@@ -44,7 +55,7 @@ return {
     },
     -- @type AvanteConflictBehaviour
     behaviour = {
-      auto_suggestions = true, -- Experimental stage
+      auto_suggestions = false, -- Experimental stage
       auto_set_highlight_group = true,
       auto_set_keymaps = true,
       auto_apply_diff_after_generation = false,
@@ -106,7 +117,7 @@ return {
       },
       ask = {
         floating = true, -- Open the 'AvanteAsk' prompt in a floating window
-        start_insert = false, -- Start insert mode when opening the ask window
+        start_insert = true, -- Start insert mode when opening the ask window
         border = "rounded",
         ---@type "ours" | "theirs"
         focus_on_apply = "ours", -- which diff to focus after applying

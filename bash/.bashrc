@@ -2,15 +2,11 @@
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 
-"$HOME/.cargo/env"
-
-# Environment variables for various tools
-export PERPLEXITY_API_KEY=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
-
 #rebar3
 export PATH=/home/lami/.cache/rebar3/bin:$PATH
 export PATH=/usr/local/android-studio/bin:$PATH
 
+# Android SDK
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 
 #aliases
@@ -52,6 +48,10 @@ alias gcad='git commit -a --amend'
 #Github Copilot CLI
 alias s='gh copilot suggest'
 alias e='gh copilot explain'
+
+# Claude
+alias cc="claude --dangerously-skip-permissions --interactive"
+alias cci="claude"
 
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
@@ -107,3 +107,4 @@ export OMAKUB_PATH="/home/$USER/.local/share/omakub"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PATH="$HOME/.local/bin:$PATH"

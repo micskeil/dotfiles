@@ -27,6 +27,7 @@ dimensions.lines = 60
 bindings = [
   { key = "F11", action = "ToggleFullscreen" },
   { key = "Escape", mods = "None", chars = "\u001b" }, # ensures fast esc 
+  { key = "Return", mods = "Shift", chars = "\n" }, # shift+enter for newline
 ]
 
 [terminal]
