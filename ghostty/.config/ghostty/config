@@ -1,14 +1,12 @@
 # command=~/dotfiles/ghostty/.config/ghostty/command.sh
-
 theme = catppuccin-mocha.conf
 font-size=12.5
 window-decoration=false
 
-window-width=150
-window-height=70
-window-position-x=10
-window-position-y=10
-window-save-state=always
+window-width=1920
+window-height=2160
+window-position-x=0
+window-position-y=0
 
 confirm-close-surface = true
 
@@ -21,8 +19,8 @@ confirm-close-surface = true
 # keybind = ctrl+b>p=previous_tab
 # keybind = ctrl+b>1=goto_tab:1
 # keybind = ctrl+b>2=goto_tab:2
-# keybind = ctrl+b>3=goto_tab:3
-# keybind = ctrl+b>4=goto_tab:4
+# keybind = ctrl+b>7=goto_tab:3
+# keybind = ctrl+b>8=goto_tab:4
 # keybind = ctrl+b>5=goto_tab:5
 # keybind = ctrl+b>6=goto_tab:6
 # keybind = ctrl+b>7=goto_tab:7

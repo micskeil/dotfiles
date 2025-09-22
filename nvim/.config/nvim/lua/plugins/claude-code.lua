@@ -7,7 +7,7 @@ return {
     require("claude-code").setup({
       -- Terminal window settings
       window = {
-        split_ratio = 0.4, -- Percentage of screen for the terminal window (height for horizontal, width for vertical splits)
+        split_ratio = 1, -- Percentage of screen for the terminal window (height for horizontal, width for vertical splits)
         position = "float", -- Position of the window: "botright", "topleft", "vertical", "float", etc.
         enter_insert = true, -- Whether to enter insert mode when opening Claude Code
         hide_numbers = true, -- Hide line numbers in the terminal window
@@ -15,12 +15,12 @@ return {
 
         -- Floating window configuration (only applies when position = "float")
         float = {
-          width = "95%", -- Width: number of columns or percentage string
-          height = "95%", -- Height: number of rows or percentage string
+          width = "96%", -- Width: number of columns or percentage string
+          height = "96%", -- Height: number of rows or percentage string
           row = "center", -- Row position: number, "center", or percentage string
           col = "center", -- Column position: number, "center", or percentage string
           relative = "editor", -- Relative to: "editor" or "cursor"
-          border = "rounded", -- Border style: "none", "single", "double", "rounded", "solid", "shadow"
+          border = "solid", -- Border style: "none", "single", "double", "rounded", "solid", "shadow"
         },
       },
       -- File refresh settings
@@ -57,7 +57,7 @@ return {
           normal = "<C-t>", -- Normal mode keymap for toggling Claude Code, false to disable
           terminal = "<C-t>", -- Terminal mode keymap for toggling Claude Code, false to disable
           variants = {
-            continue = "<leader>cC", -- Normal mode keymap for Claude Code with continue flag
+            continue = "<leader>CC", -- Normal mode keymap for Claude Code with continue flag
             verbose = "<leader>cV", -- Normal mode keymap for Claude Code with verbose flag
           },
         },

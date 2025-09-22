@@ -1,5 +1,10 @@
-worktrees/
+**/worktrees/
 
-# Claude Code memory files
+# Claude Code memory files should be ignored in the ~/mms/ directory
+# but not in other directories
 CLAUDE.md
+mms/*/CLAUDE.md
+mms/**/*/CLAUDE.md
+**/mms/**/CLAUDE.md
+.credentials.json
 

@@ -1,0 +1,229 @@
+return {
+  {
+    name = "claude-ai-assistant",
+    dir = vim.fn.stdpath("config") .. "/lua/claude-ai-neovim",
+    dependencies = {
+      "greggh/claude-code.nvim", -- Use existing Claude Code plugin infrastructure
+    },
+    config = function()
+      local M = {}
+
+      -- Function to get visual selection
+      local function get_visual_selection()
+        local start_pos = vim.fn.getpos("'<")
+        local end_pos = vim.fn.getpos("'>")
+        local start_line = start_pos[2] - 1
+        local start_col = start_pos[3] - 1
+        local end_line = end_pos[2] - 1
+        local end_col = end_pos[3]
+
+        local lines = vim.api.nvim_buf_get_lines(0, start_line, end_line + 1, false)
+        if #lines == 0 then
+          return ""
+        end
+
+        -- Handle single line selection
+        if #lines == 1 then
+          return string.sub(lines[1], start_col + 1, end_col)
+        end
+
+        -- Handle multi-line selection
+        lines[1] = string.sub(lines[1], start_col + 1)
+        lines[#lines] = string.sub(lines[#lines], 1, end_col)
+
+        return table.concat(lines, "\n")
+      end
+
+      -- Function to get current buffer content
+      local function get_buffer_content()
+        local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+        return table.concat(lines, "\n")
+      end
+
+      -- Function to get cursor position
+      local function get_cursor_position()
+        local pos = vim.api.nvim_win_get_cursor(0)
+        return { line = pos[1], col = pos[2] }
+      end
+
+
+      -- Main function to interact with Claude
+      function M.claude_ai(prompt)
+        -- Get context information
+        local mode = vim.fn.mode()
+        local buffer_content = get_buffer_content()
+        local cursor_pos = get_cursor_position()
+        local selected_text = ""
+        local is_visual = false
+
+        -- Check if we're in visual mode or have a selection
+        if mode:match("[vV]") or vim.fn.visualmode() ~= "" then
+          selected_text = get_visual_selection()
+          is_visual = true
+        end
+
+        -- Build the Claude prompt with context
+        local claude_prompt = ""
+
+        -- Add file context if available
+        local filename = vim.fn.expand("%:t")
+        local filepath = vim.fn.expand("%:p")
+        local filetype = vim.bo.filetype
+        if filename ~= "" and filetype ~= "" then
+          claude_prompt = claude_prompt .. "File: " .. filename .. " (type: " .. filetype .. ")\n"
+          claude_prompt = claude_prompt .. "Full path: " .. filepath .. "\n"
+        end
+
+        -- Add cursor position
+        claude_prompt = claude_prompt
+          .. "Cursor position: line "
+          .. cursor_pos.line
+          .. ", column "
+          .. cursor_pos.col
+          .. "\n"
+
+        -- Add selected text context if in visual mode
+        if is_visual and selected_text ~= "" then
+          claude_prompt = claude_prompt .. "\nSelected text:\n```" .. filetype .. "\n" .. selected_text .. "\n```\n\n"
+        end
+
+        -- Add buffer context (truncated if too long)
+        if #buffer_content > 5000 then
+          -- Get lines around cursor for context
+          local lines = vim.split(buffer_content, "\n")
+          local start_line = math.max(1, cursor_pos.line - 10)
+          local end_line = math.min(#lines, cursor_pos.line + 10)
+          local context_lines = {}
+          for i = start_line, end_line do
+            table.insert(context_lines, lines[i])
+          end
+          local context_content = table.concat(context_lines, "\n")
+          claude_prompt = claude_prompt
+            .. "\nBuffer context (around cursor):\n```"
+            .. filetype
+            .. "\n"
+            .. context_content
+            .. "\n```\n\n"
+        else
+          claude_prompt = claude_prompt
+            .. "\nFull buffer content:\n```"
+            .. filetype
+            .. "\n"
+            .. buffer_content
+            .. "\n```\n\n"
+        end
+
+
+        -- Add the user's prompt
+        claude_prompt = claude_prompt .. "User request: " .. (prompt or "") .. "\n\n"
+
+        -- Copy prompt to clipboard
+        vim.fn.setreg("+", claude_prompt)
+
+        -- Toggle Claude Code terminal
+        local claude_code = require("claude-code")
+        claude_code.toggle()
+
+        vim.notify("Claude prompt copied to clipboard - paste with Ctrl+Shift+V", vim.log.levels.INFO)
+      end
+
+      -- Create user commands
+      vim.api.nvim_create_user_command("ClaudeAI", function(opts)
+        M.claude_ai(opts.args)
+      end, { nargs = "*", desc = "Interact with Claude AI" })
+
+      vim.api.nvim_create_user_command("ClaudeExplain", function()
+        M.claude_ai("Explain what this code does")
+      end, { desc = "Ask Claude to explain the selected code" })
+
+      vim.api.nvim_create_user_command("ClaudeFix", function()
+        M.claude_ai("Fix any errors or issues in this code")
+      end, { desc = "Ask Claude to fix the selected code" })
+
+      vim.api.nvim_create_user_command("ClaudeImprove", function()
+        M.claude_ai("Improve this code for better readability and performance")
+      end, { desc = "Ask Claude to improve the selected code" })
+
+      vim.api.nvim_create_user_command("ClaudeComment", function()
+        M.claude_ai("Add helpful comments to this code")
+      end, { desc = "Ask Claude to add comments to the selected code" })
+
+      -- Set up keybindings with which-key integration
+      local wk = require("which-key")
+
+      -- Register which-key mappings
+      wk.add({
+        { "<leader>a", group = "Claude AI" },
+        {
+          "<leader>ai",
+          function()
+            local prompt = vim.fn.input("Claude AI: ")
+            if prompt and prompt ~= "" then
+              M.claude_ai(prompt)
+            end
+          end,
+          desc = "Ask Claude AI",
+          mode = { "n", "v" },
+        },
+        {
+          "<leader>ae",
+          function()
+            M.claude_ai("Explain what this code does")
+          end,
+          desc = "Explain code",
+          mode = { "n", "v" },
+        },
+        {
+          "<leader>af",
+          function()
+            M.claude_ai("Fix any errors or issues in this code")
+          end,
+          desc = "Fix code",
+          mode = { "n", "v" },
+        },
+        {
+          "<leader>ar",
+          function()
+            M.claude_ai("Refactor this code to make it cleaner and more efficient")
+          end,
+          desc = "Refactor code",
+          mode = { "n", "v" },
+        },
+        {
+          "<leader>ac",
+          function()
+            M.claude_ai("Add helpful comments to explain this code")
+          end,
+          desc = "Add comments",
+          mode = { "n", "v" },
+        },
+        {
+          "<leader>ao",
+          function()
+            M.claude_ai("Optimize this code for better performance")
+          end,
+          desc = "Optimize code",
+          mode = { "n", "v" },
+        },
+        {
+          "<leader>at",
+          function()
+            M.claude_ai("Write unit tests for this code")
+          end,
+          desc = "Generate tests",
+          mode = { "n", "v" },
+        },
+        {
+          "<leader>ad",
+          function()
+            M.claude_ai("Write documentation for this code")
+          end,
+          desc = "Generate docs",
+          mode = { "n", "v" },
+        },
+      })
+
+      return M
+    end,
+  },
+}

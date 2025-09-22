@@ -14,17 +14,6 @@ return {
         __inherited_from = "copilot",
         model = "claude-sonnet-4", -- claude-3.7-sonnet, gpt-4o-mini
       },
-      {
-        claude = {
-          endpoint = "https://api.anthropic.com",
-          model = "claude-sonnet-4-20250514",
-          timeout = 30000, -- Timeout in milliseconds
-          extra_request_body = {
-            temperature = 0.75,
-            max_tokens = 20480,
-          },
-        },
-      },
       -- ["perplexity-sonar"] = {
       --   __inherited_from = "openai",
       --   api_key_name = "PERPLEXITY_API_KEY",

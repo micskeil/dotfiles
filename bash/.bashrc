@@ -50,7 +50,7 @@ alias s='gh copilot suggest'
 alias e='gh copilot explain'
 
 # Claude
-alias cc="claude --dangerously-skip-permissions --interactive"
+alias cc="claude --dangerously-skip-permissions"
 alias cci="claude"
 
 # Compression
@@ -108,3 +108,4 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH="$HOME/.local/bin:$PATH"
+export NOTION_API_KEY="your_notion_integration_token_here"
