@@ -9,38 +9,12 @@ return {
     providers = {
       copilot = {
         __inherited_from = "copilot",
+        molel = "gpt-5", -- gpt-4o, gpt-4o-mini, claude-3.7, claude-3.7-sonnet
       },
       ["copilot-sonnet"] = {
         __inherited_from = "copilot",
         model = "claude-sonnet-4", -- claude-3.7-sonnet, gpt-4o-mini
       },
-      -- ["perplexity-sonar"] = {
-      --   __inherited_from = "openai",
-      --   api_key_name = "PERPLEXITY_API_KEY",
-      --   endpoint = "https://api.perplexity.ai",
-      --   model = "llama-3.1-sonar-large-128k-online", -- Online search enabled
-      -- },
-      -- -- Reasoning models
-      -- ["perplexity-reasoning"] = {
-      --   __inherited_from = "openai",
-      --   api_key_name = "PERPLEXITY_API_KEY",
-      --   endpoint = "https://api.perplexity.ai",
-      --   model = "r1-1776", -- Advanced reasoning model
-      -- },
-      -- -- Chat models (without web search)
-      -- ["perplexity-chat"] = {
-      --   __inherited_from = "openai",
-      --   api_key_name = "PERPLEXITY_API_KEY",
-      --   endpoint = "https://api.perplexity.ai",
-      --   model = "llama-3.1-sonar-large-128k-chat", -- Chat without search
-      -- },
-      -- -- Smaller/faster models
-      -- ["perplexity-small"] = {
-      --   __inherited_from = "openai",
-      --   api_key_name = "PERPLEXITY_API_KEY",
-      --   endpoint = "https://api.perplexity.ai",
-      --   model = "llama-3.1-sonar-small-128k-online",
-      -- },
     },
     -- @type AvanteConflictBehaviour
     behaviour = {

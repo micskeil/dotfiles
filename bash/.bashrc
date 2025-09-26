@@ -52,6 +52,7 @@ alias e='gh copilot explain'
 # Claude
 alias cc="claude --dangerously-skip-permissions"
 alias cci="claude"
+alias cm="claude-monitor"
 
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
