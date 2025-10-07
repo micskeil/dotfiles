@@ -18,40 +18,31 @@ magenta = '#f5c2e7'
 cyan = '#94e2d5'
 white = '#bac2de'
 
-# Bright colors
-light-black = '#585b70'
-light-red = '#f38ba8'
-light-green = '#a6e3a1'
-light-yellow = '#f9e2af'
-light-blue = '#89b4fa'
-light-magenta = '#f5c2e7'
-light-cyan = '#94e2d5'
-light-white = '#a6adc8'
+# Bright colors (Rio doesn't support bright colors in config, using regular colors)
 
 # Fonts
 [fonts]
+family = "JetBrains Mono"
 size = 18
 
 # Window configuration
 [window]
 width = 1920
 height = 2160
-mode = "windowed"
+mode = "Windowed"
 opacity = 1.0
 blur = false
-decorations = "enabled"
+decorations = "Enabled"
 
-# Padding (top, right, bottom, left)
-[padding]
-x = 10
-y = 10
+# Padding
+padding-x = 10
 
 # Confirm before quitting
 confirm-before-quit = true
 
-# Navigation
+# Navigation - disable tabs and splits for tmux compatibility
 [navigation]
-mode = "plain"
+mode = "Plain"
 hide-if-single = true
 
 # Renderer

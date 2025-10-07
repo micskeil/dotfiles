@@ -54,6 +54,23 @@ alias cc="claude --dangerously-skip-permissions"
 alias cci="claude"
 alias cm="claude-monitor"
 
+# FRLD tmux session
+frld() {
+  if tmux has-session -t mms-frld 2>/dev/null; then
+    tmux attach-session -t mms-frld
+  else
+    tmux new-session -d -s mms-frld -n NVIM -c /home/lami/mms/fdm/frld-editor \; \
+      send-keys "nvim" C-m \; \
+      new-window -n "Claude Code" -c /home/lami/mms/fdm/frld-editor \; \
+      send-keys "cc" C-m \; \
+      new-window -n Servers -c /home/lami/mms/fdm/frld-editor \; \
+      send-keys "npm run dev" C-m \; \
+      split-window -h -c /home/lami/mms/fdm/frld-backend \; \
+      select-window -t NVIM \; \
+      attach-session
+  fi
+}
+
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 alias decompress="tar -xzf"
