@@ -1,0 +1,74 @@
+# Rio configuration matching Ghostty setup
+
+# Theme - Catppuccin Mocha
+[colors]
+background = '#1e1e2e'
+foreground = '#cdd6f4'
+cursor = '#f5e0dc'
+tabs = '#181825'
+tabs-active = '#89b4fa'
+
+# Regular colors
+black = '#45475a'
+red = '#f38ba8'
+green = '#a6e3a1'
+yellow = '#f9e2af'
+blue = '#89b4fa'
+magenta = '#f5c2e7'
+cyan = '#94e2d5'
+white = '#bac2de'
+
+# Bright colors
+light-black = '#585b70'
+light-red = '#f38ba8'
+light-green = '#a6e3a1'
+light-yellow = '#f9e2af'
+light-blue = '#89b4fa'
+light-magenta = '#f5c2e7'
+light-cyan = '#94e2d5'
+light-white = '#a6adc8'
+
+# Fonts
+[fonts]
+size = 18
+
+# Window configuration
+[window]
+width = 1920
+height = 2160
+mode = "windowed"
+opacity = 1.0
+blur = false
+decorations = "enabled"
+
+# Padding (top, right, bottom, left)
+[padding]
+x = 10
+y = 10
+
+# Confirm before quitting
+confirm-before-quit = true
+
+# Navigation
+[navigation]
+mode = "plain"
+hide-if-single = true
+
+# Renderer
+[renderer]
+performance = "high"
+backend = "automatic"
+disable-unfocused-render = false
+level = 1
+
+# Keyboard
+[keyboard]
+use-kitty-keyboard-protocol = false
+disable-ctlseqs-alt = false
+ime-cursor-positioning = true
+
+# Cursor
+[cursor]
+shape = 'block'
+blinking = false
+blinking-interval = 800

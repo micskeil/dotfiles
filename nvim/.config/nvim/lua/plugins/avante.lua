@@ -6,16 +6,6 @@ return {
   version = false, -- Never set this value to "*"! Never!
   opts = {
     provider = "copilot",
-    providers = {
-      copilot = {
-        __inherited_from = "copilot",
-        molel = "gpt-5", -- gpt-4o, gpt-4o-mini, claude-3.7, claude-3.7-sonnet
-      },
-      ["copilot-sonnet"] = {
-        __inherited_from = "copilot",
-        model = "claude-sonnet-4", -- claude-3.7-sonnet, gpt-4o-mini
-      },
-    },
     -- @type AvanteConflictBehaviour
     behaviour = {
       auto_suggestions = false, -- Experimental stage
