@@ -11,7 +11,6 @@ export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 
 #aliases
 alias c='clear'
-alias code='code . -r'
 
 # File system
 alias ls='eza -lh --group-directories-first --icons'
@@ -31,7 +30,7 @@ alias ....='cd ../../..'
 
 # Tools
 alias n='nvim'
-alias t='tmux attach-session'
+alias t='tmux attach-session || tmux new-session'
 alias y='yazi'
 alias g='git'
 alias d='docker'
